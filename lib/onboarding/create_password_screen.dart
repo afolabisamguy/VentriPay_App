@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:new_ventripay/screens/otp_verification_screen.dart';
+
+import '../base/header_widget.dart';
 
 class CreatePasswordScreen extends StatefulWidget {
   const CreatePasswordScreen({super.key});
@@ -35,26 +38,26 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(onPressed: () {
-
-        },
-            icon: const Icon(Icons.arrow_back, color: Colors.black) ),
-        title: const Text(
-          "Create Password",
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
       body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 30,),
+            const HeaderWidget(showBackButton: true, text: "Create Password"),
             const SizedBox(height: 20,),
+            Text(
+              "Enter Password",
+              style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 8,),
             _buildPasswordField("Enter Password", _passwordController, true),
             const SizedBox(height: 20,),
+            Text(
+              "Confirm Password",
+              style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 8,),
             _buildPasswordField("Confirm Password", _confirmPasswordController, false),
             if (!_passwordsMatch)
               const Padding(
@@ -84,6 +87,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
         _validatePasswords();
       },
       decoration: InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         labelText: label,
         suffixIcon: IconButton(
           icon: Icon(
@@ -172,7 +176,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
   Widget _buildContinueButton(){
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: _isContinueEnabled1 ? Colors.blue : Colors.grey,
+        backgroundColor: _isContinueEnabled1 ? Color(0XFF003366) : Colors.grey,
         minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
@@ -183,7 +187,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const OtpVerificationScreen()));
       } : null,
-      child: const Text("Continue"),
+      child: const Text("Continue", style: TextStyle(color: Colors.white),),
     );
   }
 }

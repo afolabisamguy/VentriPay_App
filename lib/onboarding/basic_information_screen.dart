@@ -1,5 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:new_ventripay/base/footer_widget.dart';
 import 'package:new_ventripay/screens/create_password_screen.dart';
+
+import '../base/header_widget.dart';
 
 class BasicInformationScreen extends StatefulWidget {
   const BasicInformationScreen({super.key});
@@ -17,42 +22,39 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
   String? _selectedCountryCode = "+234";
   final List<String> _genders = ["Male", "Female", "Other"];
   final List<String> _countryCodes = ["+234", "+1", "+44", "+91", "+81"];
+  final Map<String, String> _countryFlags = {
+    "+234": "ng",
+    "+44": "gb",
+    "+1": "us",
+    "+91": "in",
+    "+81": "jp"
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+        const SizedBox(height: 35,),
+        const HeaderWidget(showBackButton: true, text: "Basic Information"),
+        Expanded(
+          child: Padding(
+              padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 8,),
-              Column(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    'Basic Information',
-                    style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
               Text(
                 "Full Name (as it appears on your official ID)",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: GoogleFonts.redHatDisplay(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   border: OutlineInputBorder(),
                   hintText: "Enter Your Full Name",
                 ),
@@ -62,14 +64,15 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                   });
                 },
               ),
-              SizedBox(height:16),
+              const SizedBox(height:16),
               Text(
                 "Gender",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                style: GoogleFonts.redHatDisplay(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-              SizedBox(height:8),
+              const SizedBox(height:8),
               DropdownButtonFormField<String>(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   border: OutlineInputBorder(),
                 ),
                 value: _gender,
@@ -84,16 +87,17 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                     _gender = value;
                   });
                 },
-                hint: Text("Gender"),
+                hint: const Text("Gender"),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 "Email",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: GoogleFonts.redHatDisplay(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   border: OutlineInputBorder(),
                   hintText: "Enter Your Email Address",
                 ),
@@ -104,26 +108,45 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                   });
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 "Enter Phone Number",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: GoogleFonts.redHatDisplay(fontSize: 16, fontWeight: FontWeight.w600),
               ),
-              SizedBox(height:8),
+              const SizedBox(height:8),
               Row(
                 children: [
                   Container(
-                    width: 100,
+                    width: 120,
                     child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                         border: OutlineInputBorder(),
                       ),
                       value: _selectedCountryCode,
-                      items: _countryCodes
-                        .map((code) => DropdownMenuItem(
-                        value: code,
-                        child: Text(code),
-                      ))
+                      items: _countryCodes.map((code) {
+                        final countryCode = _countryFlags[code]?.toLowerCase();
+                        return DropdownMenuItem(
+                          value: code,
+                          child: Row(
+                            children: [
+                              Image.network(
+                                "http://flagcdn.com/w40/$countryCode.png",
+                                width: 24,
+                                height: 16,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    const Icon(
+                                      Icons.flag,
+                                      size: 16,
+                                    ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(code),
+                            ],
+                          ),
+                        );
+                      })
                         .toList(),
                       onChanged: (value) {
                         setState(() {
@@ -132,10 +155,11 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
                       },
                     ),
                   ),
-                  SizedBox(width: 8,),
+                  const SizedBox(width: 8,),
                   Expanded(
                       child: TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                           border: OutlineInputBorder(),
                           hintText: "00 0000 0000",
                         ),
@@ -153,25 +177,25 @@ class _BasicInformationScreenState extends State<BasicInformationScreen> {
               ElevatedButton(
                 onPressed: _isFormValid() ? _submitForm: null,
                 style: ElevatedButton.styleFrom(
+                  disabledBackgroundColor: Color(0XFFCCD6E0),
+                  backgroundColor: Color(0XFF003366),
                   minimumSize: Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  )
                 ),
-                child: Text("Continue"),
+                child: const Text("Continue",
+                  style: TextStyle(color: Colors.white)
+                  ,),
               ),
               SizedBox(height: 16,),
-              Center(
-                child: GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: Text(
-                    "Alrady have an account? Sign in here",
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                ),
-              ),
+              const FooterWidget()
             ],
           ),
         ),
+      ),
+        ),
+        ],
       ),
     );
   }

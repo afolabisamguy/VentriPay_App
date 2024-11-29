@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class UsingVentriScreen extends StatelessWidget {
   const UsingVentriScreen({super.key});
@@ -6,34 +7,36 @@ class UsingVentriScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.5,
-        centerTitle: true,
-        title: Text(
-          "What do you want to use VentriPay for?",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
+      backgroundColor: Color(0XFFFFFFFF),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 40,),
+          Container(
+            color: const Color(0XFFEFEFEF),
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            Text(
+              "What Do You Want To Use VentriPay For?",
+              style: TextStyle(fontSize: 16, color: Colors.black54),
+            ),
+          SizedBox(height: 8,),
+          Text(
+              "Select All Use Cases That Match Your Want.",
+              style: TextStyle(fontSize: 16, color: Colors.black54),
+            ),
+            ],
           ),
-        ),
-        leading: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.arrow_back_ios, color: Colors.black)),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          ),
+          Expanded(
+          child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Select all use cases that match your want.",
-              style: TextStyle(fontSize: 16, color: Colors.black54),
-            ),
-            SizedBox(height: 16,),
             Expanded(
                 child: ListView(
                   children: [
@@ -69,12 +72,10 @@ class UsingVentriScreen extends StatelessWidget {
                 ),
             ),
             SizedBox(height: 16,),
-            SizedBox(
-              width: double.infinity,
-                child: ElevatedButton(
+                ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[900],
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor: Color(0XFF003366),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -89,33 +90,30 @@ class UsingVentriScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-            ),
+            const SizedBox(height: 36,),
           ],
         ),
       ),
+          ),
+    ],
+    ),
     );
   }
 
   Widget _buildOption({required IconData icon, required String text}){
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color(0XFFCCD6E0),
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.shade300,
-            blurRadius: 6,
-            offset: Offset(0, 2),
-          ),
-        ],
+
       ),
       child: Row(
         children: [
           Icon(icon, size: 25, color: Colors.blue[900]),
           SizedBox(width: 16,),
-          Expanded(child: Text(text, style: TextStyle(fontSize: 16, color: Colors.black87),
+          Expanded(child: Text(text, style: GoogleFonts.redHatDisplay(fontSize: 13, color: Colors.black87, fontWeight: FontWeight.w500),
           ),
           ),
         ],

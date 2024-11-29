@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:new_ventripay/base/header_widget.dart';
 import 'package:new_ventripay/screens/using_ventri_screen.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
@@ -54,24 +55,13 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          "Verify Your Email",
-          style: TextStyle(color: Colors.black),
-        ),
-        centerTitle: true,
-        leading: IconButton(onPressed: () {
-
-        },
-            icon: const Icon(Icons.arrow_back, color: Colors.black)),
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 40,),
+            const HeaderWidget(showBackButton: false, text: "Verify Your Email"),
             const SizedBox(height: 20,),
             const Text(
               "Please Enter the OTP sent to",
@@ -120,7 +110,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
             const Spacer(),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: _isVerifyButtonEnabled ? Colors.blue : Colors.grey,
+                backgroundColor: _isVerifyButtonEnabled ? Color(0XFF003366) : Colors.grey,
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0)
@@ -128,6 +118,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               ),
               onPressed: _isVerifyButtonEnabled ? () {
                 print("Otp Verified!");
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const UsingVentriScreen()));
               } : null,
@@ -135,10 +126,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   SizedBox(width: 8,),
-                  Text("Verify Account", style: TextStyle(fontSize: 16),),
+                  Text("Verify Account", style: TextStyle(fontSize: 16, color: Colors.white),),
                 ],
               ),
-            ),
+           ),
             const SizedBox(height: 8,),
             InkWell(
               onTap: () {

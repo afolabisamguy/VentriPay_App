@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_ventripay/base/footer_widget.dart';
 import 'package:new_ventripay/base/header_widget.dart';
 import 'package:new_ventripay/screens/basic_information_screen.dart';
 
@@ -164,15 +165,7 @@ class _CountryScreenState extends State<CountryScreen> {
                     ),
                   ),
                   SizedBox(height: 16),
-                  TextButton(
-                    onPressed: () {
-                      // handle click later on
-                    },
-                    child: Text(
-                      "Already have an account? Sign in here",
-                      style: TextStyle(color: Color(0xFF003366)),
-                    ),
-                  ),
+                  const FooterWidget()
                 ],
               ),
             ),
