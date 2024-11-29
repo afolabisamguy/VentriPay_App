@@ -5,6 +5,8 @@ import 'package:new_ventripay/onboarding/footer_widget.dart';
 import 'package:new_ventripay/onboarding/create_password_screen.dart';
 
 import 'header_widget.dart';
+import 'package:new_ventripay/screens/create_password_screen.dart';
+import 'package:new_ventripay/screens/login/login.dart';
 
 class BasicInformationScreen extends StatefulWidget {
   const BasicInformationScreen({super.key});
