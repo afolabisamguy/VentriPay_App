@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:new_ventripay/base/dashboard__header.dart';
-import 'package:new_ventripay/screens/verification_modal.dart';
+import 'package:new_ventripay/idverification/dashboard__header.dart';
+import 'package:new_ventripay/idverification/verification_modal.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});

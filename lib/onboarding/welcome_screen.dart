@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_ventripay/screens/basic_information_screen.dart';
-import 'package:new_ventripay/screens/country_screen.dart';
+import 'package:new_ventripay/onboarding/basic_information_screen.dart';
+import 'package:new_ventripay/onboarding/country_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomeScreen extends StatefulWidget {

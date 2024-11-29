@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:new_ventripay/base/footer_widget.dart';
-import 'package:new_ventripay/screens/create_password_screen.dart';
+import 'package:new_ventripay/onboarding/footer_widget.dart';
+import 'package:new_ventripay/onboarding/create_password_screen.dart';
 
-import '../base/header_widget.dart';
+import 'header_widget.dart';
 
 class BasicInformationScreen extends StatefulWidget {
   const BasicInformationScreen({super.key});

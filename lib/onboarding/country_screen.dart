@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_ventripay/base/footer_widget.dart';
-import 'package:new_ventripay/base/header_widget.dart';
-import 'package:new_ventripay/screens/basic_information_screen.dart';
+import 'package:new_ventripay/onboarding/footer_widget.dart';
+import 'package:new_ventripay/onboarding/header_widget.dart';
+import 'package:new_ventripay/onboarding/basic_information_screen.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({super.key});

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:new_ventripay/base/header_widget.dart';
-import 'package:new_ventripay/screens/using_ventri_screen.dart';
+import 'package:new_ventripay/onboarding/header_widget.dart';
+import 'package:new_ventripay/onboarding/using_ventri_screen.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   const OtpVerificationScreen({super.key});
