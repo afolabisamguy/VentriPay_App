@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_ventripay/screens/login/enter_phone_number.dart';
+import 'enter_phone_number.dart';
 
 class EnterEmail extends StatefulWidget {
   const EnterEmail({super.key});

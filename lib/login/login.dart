@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:new_ventripay/screens/basic_information_screen.dart';
-import 'package:new_ventripay/screens/login/enter_email.dart';
-import 'package:new_ventripay/screens/login/enter_phone_number.dart';
+import '../onboarding/basic_information_screen.dart';
+import 'enter_email.dart';
+import 'enter_phone_number.dart';
 // import 'verification_method_provider.dart';
 
 class Login extends ConsumerWidget {
